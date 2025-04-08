@@ -2,6 +2,9 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import logo from '../assets/Holidaze.svg';
 
 export function Login() {
   const schema = yup
@@ -26,6 +29,8 @@ export function Login() {
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(null);
 
+  const navigate = useNavigate();
+
   async function onSubmit(data) {
     const body = JSON.stringify({
       email: data.email,
@@ -47,6 +52,7 @@ export function Login() {
 
       if (response.ok) {
         localStorage.setItem('token', result.data.accessToken);
+        localStorage.setItem('username', result.data.name);
       } else {
         setIsError(result.errors[0].message);
       }
@@ -54,11 +60,16 @@ export function Login() {
       setIsError(error.message);
     } finally {
       setIsLoading(false);
+      navigate('/');
     }
   }
 
   return (
     <div>
+      <Link to="/">
+        <img src={logo} alt="Holidaze logo" />
+      </Link>
+      <h1>Sign in</h1>
       <form onSubmit={handleSubmit(onSubmit)}>
         <input {...register('email')} />
         <p>{errors.email?.message}</p>
@@ -71,6 +82,8 @@ export function Login() {
           {isLoading ? 'Sign in...' : 'Sign in'}
         </button>
       </form>
+      <p>Don’t have an account yet?</p>
+      <Link to="/register">Sign up now</Link>
     </div>
   );
 }

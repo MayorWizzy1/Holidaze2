@@ -2,6 +2,9 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import logo from '../assets/Holidaze.svg';
 
 export function Register() {
   const schema = yup
@@ -30,6 +33,8 @@ export function Register() {
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(null);
 
+  const navigate = useNavigate();
+
   async function onSubmit(data) {
     const body = JSON.stringify({
       name: data.name,
@@ -57,11 +62,16 @@ export function Register() {
       setIsError(error.message);
     } finally {
       setIsLoading(false);
+      navigate('/login');
     }
   }
 
   return (
     <div>
+      <Link to="/">
+        <img src={logo} alt="Holidaze logo" />
+      </Link>
+      <h1>Sign up</h1>
       <form onSubmit={handleSubmit(onSubmit)}>
         <input {...register('name')} />
         <p>{errors.name?.message}</p>
@@ -76,6 +86,8 @@ export function Register() {
           {isLoading ? 'Sign up...' : 'Sign up'}
         </button>
       </form>
+      <p>Already have an account yet?</p>
+      <Link to="/login">Sign in</Link>
     </div>
   );
 }
