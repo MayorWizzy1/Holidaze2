@@ -3,6 +3,8 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import logo from '../assets/Holidaze.svg';
 
 export function Login() {
   const schema = yup
@@ -64,6 +66,10 @@ export function Login() {
 
   return (
     <div>
+      <Link to="/">
+        <img src={logo} alt="Holidaze logo" />
+      </Link>
+      <h1>Sign in</h1>
       <form onSubmit={handleSubmit(onSubmit)}>
         <input {...register('email')} />
         <p>{errors.email?.message}</p>
@@ -76,6 +82,8 @@ export function Login() {
           {isLoading ? 'Sign in...' : 'Sign in'}
         </button>
       </form>
+      <p>Don’t have an account yet?</p>
+      <Link to="/register">Sign up now</Link>
     </div>
   );
 }
