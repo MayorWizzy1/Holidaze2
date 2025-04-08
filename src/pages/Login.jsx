@@ -47,6 +47,7 @@ export function Login() {
 
       if (response.ok) {
         localStorage.setItem('token', result.data.accessToken);
+        localStorage.setItem('username', result.data.name);
       } else {
         setIsError(result.errors[0].message);
       }
