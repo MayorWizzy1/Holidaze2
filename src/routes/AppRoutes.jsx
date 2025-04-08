@@ -11,13 +11,11 @@ export function AppRoutes() {
   useEffect(() => {
     setIsLoading(true);
 
-    const handleLoad = () => setIsLoading(false);
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 500);
 
-    window.addEventListener('load', handleLoad);
-
-    return () => {
-      window.removeEventListener('load', handleLoad);
-    };
+    return () => clearTimeout(timer);
   }, [location]);
 
   return (
