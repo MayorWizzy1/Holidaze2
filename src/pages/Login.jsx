@@ -2,6 +2,7 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export function Login() {
   const schema = yup
@@ -25,6 +26,8 @@ export function Login() {
   } = useForm({ resolver: yupResolver(schema) });
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(null);
+
+  const navigate = useNavigate();
 
   async function onSubmit(data) {
     const body = JSON.stringify({
@@ -55,6 +58,7 @@ export function Login() {
       setIsError(error.message);
     } finally {
       setIsLoading(false);
+      navigate('/');
     }
   }
 
