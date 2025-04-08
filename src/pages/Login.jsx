@@ -68,7 +68,7 @@ export function Login() {
         {isError && <p style={{ color: 'red' }}>{isError}</p>}
 
         <button type="submit" disabled={isLoading}>
-          {isLoading ? 'Logging in...' : 'Login'}
+          {isLoading ? 'Sign in...' : 'Sign in'}
         </button>
       </form>
     </div>
