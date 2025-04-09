@@ -38,7 +38,9 @@ export function UnauthorizedMobileHeader() {
             <Link onClick={toggleHamburgerMenu}>Venues</Link>
           </li>
           <li>
-            <Link onClick={toggleHamburgerMenu}>List your property</Link>
+            <Link to="/login" onClick={toggleHamburgerMenu}>
+              List your property
+            </Link>
           </li>
           <li>
             <Link
