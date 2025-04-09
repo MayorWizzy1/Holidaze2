@@ -3,6 +3,7 @@ import { Login } from '../pages/Login';
 import { Register } from '../pages/Register';
 import { Layout } from '../components/Layout';
 import { useEffect, useState } from 'react';
+import { Home } from '../pages/Home';
 
 export function AppRoutes() {
   const [isLoading, setIsLoading] = useState(false);
@@ -23,6 +24,7 @@ export function AppRoutes() {
       {isLoading && <div>Loading...</div>}
       <Routes>
         <Route path="/" element={<Layout />}>
+          <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
         </Route>
