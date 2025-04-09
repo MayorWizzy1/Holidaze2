@@ -18,16 +18,26 @@ export function AuthorizedMobileHeader() {
   return (
     <div>
       {isMenuOpen ? (
-        <button onClick={toggleHamburgerMenu}>
+        <button onClick={toggleHamburgerMenu} className="relative z-10">
           <CloseIcon />
         </button>
       ) : (
-        <button onClick={toggleHamburgerMenu}>
-          <MenuIcon />
-        </button>
+        <div>
+          <Link to="/login" className="mr-6">
+            <PermIdentityIcon className="!text-black" />
+          </Link>
+          <button onClick={toggleHamburgerMenu} className="text-black">
+            <MenuIcon />
+          </button>
+        </div>
       )}
-      {isMenuOpen ? (
-        <ul>
+      <nav
+        className="fixed top-0 right-0 left-0 h-screen flex justify-center bg-white transition-transform duration-500 transform ease-in-out"
+        style={{
+          transform: isMenuOpen ? 'translateY(0)' : 'translateY(-100%)',
+        }}
+      >
+        <ul className="flex flex-col items-center justify-center gap-10 text-2xl font-medium">
           <li>
             <Link onClick={toggleHamburgerMenu}>Venues</Link>
           </li>
@@ -38,21 +48,22 @@ export function AuthorizedMobileHeader() {
             <Link onClick={toggleHamburgerMenu}>Your bookings</Link>
           </li>
           <li>
-            <Link onClick={toggleHamburgerMenu}>
-              <PermIdentityIcon />
+            <Link onClick={toggleHamburgerMenu} className="flex items-center">
+              <PermIdentityIcon className="!w-6 mr-1" />
               {username}
             </Link>
           </li>
           <li>
-            <button onClick={logout}>
-              <LogoutIcon />
-              Logout
+            <button
+              onClick={logout}
+              className="flex items-center cursor-pointer"
+            >
+              <LogoutIcon className="!w-6 mr-1" />
+              <p>Logout</p>
             </button>
           </li>
         </ul>
-      ) : (
-        ''
-      )}
+      </nav>
     </div>
   );
 }
