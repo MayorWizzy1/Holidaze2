@@ -3,4 +3,12 @@
 @theme {
   --font-roboto: 'Roboto', 'sans-serif';
   --font-boska: 'Boska', 'serif';
+
+  --color-black: #333333;
+  --color-blue: #0b8db7;
+  --color-orange: #f25f29;
+  --color-light-orange: #ffefe9;
+  --color-error: #d32f2f;
+  --color-outline: #747474;
+  --color-light-outline: #d8d3d3;
 }
