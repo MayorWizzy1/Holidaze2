@@ -4,6 +4,7 @@ import { Register } from '../pages/Register';
 import { Layout } from '../components/Layout';
 import { useEffect, useState } from 'react';
 import { Home } from '../pages/Home';
+import { Venue } from '../pages/Venue';
 
 export function AppRoutes() {
   const [isLoading, setIsLoading] = useState(false);
@@ -25,6 +26,7 @@ export function AppRoutes() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route path="/" element={<Home />} />
+          <Route path="venue/:id" element={<Venue />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
         </Route>
