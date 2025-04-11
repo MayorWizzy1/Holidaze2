@@ -12,4 +12,16 @@
   --color-outline: #747474;
   --color-light-outline: #d8d3d3;
   --color-bg-black: rgba(51, 51, 51, 0.5);
+
+  --shadow-custom: 4px 4px 10px 0px rgba(51, 51, 51, 0.1);
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none; /* Internet Explorer 10+ 用 */
+    scrollbar-width: none; /* Firefox 用 */
+  }
 }
