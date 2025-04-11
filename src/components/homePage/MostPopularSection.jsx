@@ -4,16 +4,19 @@ import HotelOutlinedIcon from '@mui/icons-material/HotelOutlined';
 import { Link } from 'react-router-dom';
 import StarIcon from '@mui/icons-material/Star';
 
-export function NewlyAddedSection() {
+export function MostPopularSection() {
   const url = 'https://v2.api.noroff.dev/holidaze/venues';
   const { data: venues } = useApi(url, {
     method: 'GET',
   });
+  const mostBookedVenues = venues.sort(
+    (a, b) => b._count.bookings - a._count.bookings
+  );
   return (
-    <div className="pt-8 pl-4 text-black font-roboto lg:px-32 lg:pt-16">
-      <h1 className="text-xl font-bold mb-4">Newly added venues</h1>
+    <div className="pl-4 text-black font-roboto lg:px-32">
+      <h1 className="text-xl font-bold mb-4">Most popular venues</h1>
       <div className="grid grid-flow-col auto-cols-max overflow-x-auto pb-8 gap-4 lg:grid-cols-4 lg:gap-3 lg:pb-20">
-        {venues.slice(0, 4).map((venue, index) => (
+        {mostBookedVenues.slice(0, 4).map((venue, index) => (
           <Link
             key={index}
             id={venue.id}
