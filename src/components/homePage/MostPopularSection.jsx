@@ -13,9 +13,9 @@ export function MostPopularSection() {
     (a, b) => b._count.bookings - a._count.bookings
   );
   return (
-    <div className="pl-4 text-black font-roboto lg:px-32">
+    <div className="pl-4 text-black font-roboto lg:pl-32 lg:pr-28">
       <h1 className="text-xl font-bold mb-4">Most booked venues</h1>
-      <div className="grid grid-flow-col auto-cols-max overflow-x-auto pb-8 gap-4 no-scrollbar lg:grid-cols-4 lg:gap-3 lg:pb-20">
+      <div className="grid grid-flow-col auto-cols-max overflow-x-auto pb-8 gap-4 no-scrollbar lg:grid-cols-4 lg:gap-3 lg:pb-20 lg:pr-4">
         {mostBookedVenues.slice(0, 4).map((venue, index) => (
           <Link
             key={index}

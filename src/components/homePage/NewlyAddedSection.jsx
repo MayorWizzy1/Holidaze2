@@ -10,9 +10,9 @@ export function NewlyAddedSection() {
     method: 'GET',
   });
   return (
-    <div className="pt-8 pl-4 text-black font-roboto lg:px-32 lg:pt-16">
+    <div className="pt-8 pl-4 text-black font-roboto lg:pl-32 lg:pr-28 lg:pt-16">
       <h1 className="text-xl font-bold mb-4">Newly added venues</h1>
-      <div className="grid grid-flow-col auto-cols-max auto-rows-max overflow-x-auto pb-8 gap-4 no-scrollbar lg:grid-cols-4 lg:gap-3 lg:pb-20">
+      <div className="grid grid-flow-col auto-cols-max auto-rows-max overflow-x-auto pb-8 gap-4 no-scrollbar lg:grid-cols-4 lg:gap-3 lg:pb-20 lg:pr-4">
         {venues.slice(0, 4).map((venue, index) => (
           <Link
             key={index}
