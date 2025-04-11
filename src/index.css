@@ -12,6 +12,8 @@
   --color-outline: #747474;
   --color-light-outline: #d8d3d3;
   --color-bg-black: rgba(51, 51, 51, 0.5);
+  --color-transparent-black: rgba(51, 51, 51, 0);
+  --color-semi-transparent-black: rgba(51, 51, 51, 0.9);
 
   --shadow-custom: 4px 4px 10px 0px rgba(51, 51, 51, 0.1);
 }
