@@ -24,7 +24,19 @@ export function AppRoutes() {
 
   return (
     <div>
-      {isLoading && <div>Loading...</div>}
+      {isLoading && (
+        <div className="fixed flex flex-col justify-center top-0 bottom-0 right-0 left-0 bg-white z-50">
+          <h1 className="font-roboto text-black tracking-wide text-center mb-2">
+            LOADING
+          </h1>
+          <div>
+            <span className="w-4 h-4 rounded-[50%] inline-block absolute left-1/2 ml-[-10px] bg-blue animate-bounceLeft"></span>
+            <span className="w-4 h-4 rounded-[50%] inline-block absolute left-1/2 ml-[-10px] bg-orange z-50"></span>
+            <span className="w-4 h-4 rounded-[50%] inline-block absolute left-1/2 ml-[-10px] bg-blue animate-bounceRight"></span>
+          </div>
+        </div>
+      )}
+
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route path="/" element={<Home />} />

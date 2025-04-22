@@ -16,6 +16,37 @@
   --color-semi-transparent-black: rgba(51, 51, 51, 0.9);
 
   --shadow-custom: 4px 4px 10px 0px rgba(51, 51, 51, 0.1);
+
+  --animate-bounceLeft: bounceLeft 1.5s infinite linear;
+  --animate-bounceRight: bounceRight 1.5s infinite linear;
+
+  @keyframes bounceLeft {
+    0% {
+      transform: translateX(-20px);
+      z-index: 200;
+    }
+    50% {
+      transform: translateX(20px);
+    }
+    100% {
+      transform: translateX(-20px);
+    }
+  }
+
+  @keyframes bounceRight {
+    0% {
+      transform: translateX(20px);
+    }
+
+    50% {
+      transform: translateX(-20px);
+    }
+
+    100% {
+      transform: translateX(20px);
+      z-index: 200;
+    }
+  }
 }
 
 @layer utilities {
