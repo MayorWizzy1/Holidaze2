@@ -1,5 +1,6 @@
 import PlaceOutlinedIcon from '@mui/icons-material/PlaceOutlined';
 import { useState } from 'react';
+import CloseIcon from '@mui/icons-material/Close';
 
 export function HeroSection({ setSearchResults, setSearchText }) {
   const [isLoading, setIsLoading] = useState(false);
@@ -35,6 +36,11 @@ export function HeroSection({ setSearchResults, setSearchText }) {
     }
   };
 
+  const clearInput = () => {
+    setInputValue('');
+    setNoResults(false);
+  };
+
   return (
     <div className="bg-[url('/public/bg-hero.jpg')] bg-cover bg-center font-roboto">
       <div className="bg-bg-black px-10 py-12 sm:px-24 lg:py-24 lg:px-32">
@@ -43,9 +49,9 @@ export function HeroSection({ setSearchResults, setSearchText }) {
         </h1>
         <form
           onSubmit={handleSearch}
-          className="lg:bg-white lg:flex lg:items-center lg:gap-3 lg:p-10 lg:rounded-[10px] lg:w-3/5"
+          className="lg:bg-white lg:flex lg:items-center lg:gap-2 lg:p-10 lg:rounded-[10px] lg:w-3/5"
         >
-          <div className="relative bg-white rounded-[10px] py-3 mb-2 md:w-1/2 md:mx-auto lg:border lg:border-outline lg:mb-0 lg:w-3/5">
+          <div className="relative bg-white rounded-[10px] py-3 mb-2 md:w-1/2 md:mx-auto lg:border lg:border-outline lg:mb-0 lg:w-3/4">
             <PlaceOutlinedIcon className="absolute left-4 text-black !w-5" />
             <input
               value={inputValue}
@@ -64,17 +70,23 @@ export function HeroSection({ setSearchResults, setSearchText }) {
                 {isError}
               </p>
             )}
-            {noResults && !isFocused && (
-              <p className="absolute top-1/2 right-4 -translate-y-1/2 text-sm text-error">
+            {noResults && (!isFocused || inputValue === '') && (
+              <p className="absolute top-1/2 right-10 -translate-y-1/2 text-sm text-error">
                 No results found.
               </p>
+            )}
+            {inputValue && (
+              <CloseIcon
+                className="absolute right-4 text-black !w-5 cursor-pointer z-[11]"
+                onClick={clearInput}
+              />
             )}
           </div>
 
           <button
             type="submit"
-            className="bg-blue text-white cursor-pointer rounded-[10px] py-3 w-full font-medium block md:w-1/2 md:mx-auto lg:w-2/5 transition-all duration-300 hover:bg-white hover:text-blue hover:border"
-            disabled={isLoading}
+            className="bg-blue text-white cursor-pointer rounded-[10px] py-3 w-full font-medium block md:w-1/2 md:mx-auto lg:w-1/4 transition-all duration-300 hover:bg-white hover:text-blue hover:border disabled:cursor-not-allowed"
+            disabled={isLoading || inputValue === ''}
           >
             Search
           </button>
