@@ -8,7 +8,7 @@ export function TrendingDestinationSection() {
         <li className="rounded-[10px] aspect-square relative group overflow-hidden">
           <img
             src="public/norway.jpg"
-            alt=""
+            alt="destination - norway"
             className="aspect-square absolute top-0 right-0 bottom-0 left-0 object-cover transition-transform duration-700 group-hover:scale-105"
           />
           <Link className="flex justify-end items-end p-4 bg-gradient-to-b from-transparent-black to-semi-transparent-black w-full h-full relative z-10 lg:p-6">
@@ -20,7 +20,7 @@ export function TrendingDestinationSection() {
         <li className="rounded-[10px] aspect-square relative group overflow-hidden">
           <img
             src="public/japan.jpg"
-            alt=""
+            alt="destination - japan"
             className="aspect-square absolute top-0 right-0 bottom-0 left-0 object-cover transition-transform duration-700 group-hover:scale-105"
           />
           <Link className="flex justify-end items-end p-4 bg-gradient-to-b from-transparent-black to-semi-transparent-black w-full h-full relative z-10 lg:p-6">
@@ -32,7 +32,7 @@ export function TrendingDestinationSection() {
         <li className="rounded-[10px] aspect-square relative group overflow-hidden">
           <img
             src="public/spain.jpg"
-            alt=""
+            alt="destination - spain"
             className="aspect-square absolute top-0 right-0 bottom-0 left-0 object-cover transition-transform duration-700 group-hover:scale-105"
           />
           <Link className="flex justify-end items-end p-4 bg-gradient-to-b from-transparent-black to-semi-transparent-black w-full h-full relative z-10 lg:p-6">
@@ -44,7 +44,7 @@ export function TrendingDestinationSection() {
         <li className="rounded-[10px] aspect-square relative group overflow-hidden">
           <img
             src="public/thailand.jpg"
-            alt=""
+            alt="destination - thailand"
             className="aspect-square absolute top-0 right-0 bottom-0 left-0 object-cover transition-transform duration-700 group-hover:scale-105"
           />
           <Link className="flex justify-end items-end p-4 bg-gradient-to-b from-transparent-black to-semi-transparent-black w-full h-full relative z-10 lg:p-6">
