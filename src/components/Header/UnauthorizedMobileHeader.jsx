@@ -14,7 +14,7 @@ export function UnauthorizedMobileHeader() {
   return (
     <div>
       {isMenuOpen ? (
-        <button onClick={toggleHamburgerMenu} className="relative z-10">
+        <button onClick={toggleHamburgerMenu} className="relative z-30">
           <CloseIcon />
         </button>
       ) : (
@@ -28,7 +28,7 @@ export function UnauthorizedMobileHeader() {
         </div>
       )}
       <nav
-        className="fixed top-0 right-0 left-0 h-screen flex justify-center bg-white transition-transform duration-500 transform ease-in-out"
+        className="fixed top-0 right-0 left-0 h-screen flex justify-center bg-white transition-transform duration-500 transform ease-in-out z-20"
         style={{
           transform: isMenuOpen ? 'translateY(0)' : 'translateY(-100%)',
         }}

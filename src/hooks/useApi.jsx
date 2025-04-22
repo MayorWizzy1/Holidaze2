@@ -20,7 +20,7 @@ export function useApi(url, options = {}) {
       }
     }
     getData();
-  }, [url, options]);
+  }, [url]);
 
   return { data, isLoading, isError };
 }
