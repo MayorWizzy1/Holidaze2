@@ -5,6 +5,7 @@ import { Layout } from '../components/Layout';
 import { useEffect, useState } from 'react';
 import { Home } from '../pages/Home';
 import { Venue } from '../pages/Venue';
+import { AllVenues } from '../pages/AllVenues';
 
 export function AppRoutes() {
   const [isLoading, setIsLoading] = useState(false);
@@ -27,6 +28,7 @@ export function AppRoutes() {
         <Route path="/" element={<Layout />}>
           <Route path="/" element={<Home />} />
           <Route path="venue/:id" element={<Venue />} />
+          <Route path="/venues" element={<AllVenues />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
         </Route>
