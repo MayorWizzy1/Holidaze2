@@ -11,7 +11,10 @@ export function TrendingDestinationSection() {
             alt="destination - norway"
             className="aspect-square absolute top-0 right-0 bottom-0 left-0 object-cover transition-transform duration-700 group-hover:scale-105"
           />
-          <Link className="flex justify-end items-end p-4 bg-gradient-to-b from-transparent-black to-semi-transparent-black w-full h-full relative z-10 lg:p-6">
+          <Link
+            to="venues/norway"
+            className="flex justify-end items-end p-4 bg-gradient-to-b from-transparent-black to-semi-transparent-black w-full h-full relative z-10 lg:p-6"
+          >
             <p className="font-boska font-bold text-2xl text-white lg:text-[32px]">
               Norway
             </p>
@@ -23,7 +26,10 @@ export function TrendingDestinationSection() {
             alt="destination - japan"
             className="aspect-square absolute top-0 right-0 bottom-0 left-0 object-cover transition-transform duration-700 group-hover:scale-105"
           />
-          <Link className="flex justify-end items-end p-4 bg-gradient-to-b from-transparent-black to-semi-transparent-black w-full h-full relative z-10 lg:p-6">
+          <Link
+            to="venues/japan"
+            className="flex justify-end items-end p-4 bg-gradient-to-b from-transparent-black to-semi-transparent-black w-full h-full relative z-10 lg:p-6"
+          >
             <p className="font-boska font-bold text-2xl text-white lg:text-[32px]">
               Japan
             </p>
@@ -35,7 +41,10 @@ export function TrendingDestinationSection() {
             alt="destination - spain"
             className="aspect-square absolute top-0 right-0 bottom-0 left-0 object-cover transition-transform duration-700 group-hover:scale-105"
           />
-          <Link className="flex justify-end items-end p-4 bg-gradient-to-b from-transparent-black to-semi-transparent-black w-full h-full relative z-10 lg:p-6">
+          <Link
+            to="venues/spain"
+            className="flex justify-end items-end p-4 bg-gradient-to-b from-transparent-black to-semi-transparent-black w-full h-full relative z-10 lg:p-6"
+          >
             <p className="font-boska font-bold text-2xl text-white lg:text-[32px]">
               Spain
             </p>
@@ -47,7 +56,10 @@ export function TrendingDestinationSection() {
             alt="destination - thailand"
             className="aspect-square absolute top-0 right-0 bottom-0 left-0 object-cover transition-transform duration-700 group-hover:scale-105"
           />
-          <Link className="flex justify-end items-end p-4 bg-gradient-to-b from-transparent-black to-semi-transparent-black w-full h-full relative z-10 lg:p-6">
+          <Link
+            to="venues/thailand"
+            className="flex justify-end items-end p-4 bg-gradient-to-b from-transparent-black to-semi-transparent-black w-full h-full relative z-10 lg:p-6"
+          >
             <p className="font-boska font-bold text-2xl text-white lg:text-[32px]">
               Thailand
             </p>
