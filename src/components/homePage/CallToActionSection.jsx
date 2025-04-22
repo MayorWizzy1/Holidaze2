@@ -6,7 +6,7 @@ export function CallToActionSection() {
       <div>
         <h1 className="text-xl font-bold mb-4">Explore all venues</h1>
         <Link
-          to="/venues"
+          to="/allVenues"
           className="block rounded-[10px] group overflow-hidden"
         >
           <img
