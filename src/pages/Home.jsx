@@ -4,6 +4,7 @@ import { MostPopularSection } from '../components/homePage/MostPopularSection';
 import { NewlyAddedSection } from '../components/homePage/NewlyAddedSection';
 import { TrendingDestinationSection } from '../components/homePage/TrendingDestinationSection';
 import { SearchResultSection } from '../components/homePage/SearchResultSection';
+import { CallToActionSection } from '../components/homePage/CallToActionSection';
 
 export function Home() {
   const [searchResults, setSearchResults] = useState([]);
@@ -21,6 +22,7 @@ export function Home() {
       <NewlyAddedSection />
       <MostPopularSection />
       <TrendingDestinationSection />
+      <CallToActionSection />
     </div>
   );
 }
