@@ -8,7 +8,7 @@ import { useLogout } from '../../hooks/useLogout';
 
 export function AuthorizedMobileHeader() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const username = localStorage.getItem('username');
+  const username = sessionStorage.getItem('username');
   const logout = useLogout();
 
   function toggleHamburgerMenu() {

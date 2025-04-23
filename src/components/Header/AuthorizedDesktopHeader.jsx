@@ -4,7 +4,7 @@ import PermIdentityIcon from '@mui/icons-material/PermIdentity';
 import { useLogout } from '../../hooks/useLogout';
 
 export function AuthorizedDesktopHeader() {
-  const username = localStorage.getItem('username');
+  const username = sessionStorage.getItem('username');
   const logout = useLogout();
   return (
     <nav>

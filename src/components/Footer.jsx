@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import logo from '../assets/Holidaze.svg';
 
 export function Footer() {
-  const isLoggedIn = localStorage.getItem('token');
+  const isLoggedIn = sessionStorage.getItem('token');
   return (
     <footer className="px-4 py-8 bg-light-orange text-black lg:px-32 lg:py-16">
       <Link to="/" className="block w-1/4 mb-6 lg:w-1/5 lg:mb-12">

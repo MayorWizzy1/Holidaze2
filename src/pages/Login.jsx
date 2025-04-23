@@ -51,8 +51,8 @@ export function Login() {
       const result = await response.json();
 
       if (response.ok) {
-        localStorage.setItem('token', result.data.accessToken);
-        localStorage.setItem('username', result.data.name);
+        sessionStorage.setItem('token', result.data.accessToken);
+        sessionStorage.setItem('username', result.data.name);
         navigate('/');
       } else {
         setIsError(result.errors[0].message);
