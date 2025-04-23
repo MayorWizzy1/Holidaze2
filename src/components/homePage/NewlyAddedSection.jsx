@@ -35,7 +35,8 @@ export function NewlyAddedSection() {
                 <div className="text-outline flex items-center gap-1 mb-0.5">
                   <PlaceOutlinedIcon className="!w-4" />
                   <p className="text-sm">
-                    {venue.location.city}, {venue.location.country}
+                    {venue.location.city || 'Somewhere'},{' '}
+                    {venue.location.country || 'in the world'}
                   </p>
                 </div>
                 <div className="text-outline flex items-center gap-1">
