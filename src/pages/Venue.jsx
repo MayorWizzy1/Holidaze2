@@ -16,6 +16,8 @@ import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined
 import RemoveIcon from '@mui/icons-material/Remove';
 import AddIcon from '@mui/icons-material/Add';
 import { useForm, Controller } from 'react-hook-form';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import { Carousel } from 'react-responsive-carousel';
 
 export function Venue() {
   let { id } = useParams();
@@ -76,19 +78,44 @@ export function Venue() {
     });
   };
 
+  const [imageList, setImageList] = useState([]);
+
+  useEffect(() => {
+    if (venue?.media && venue.media.length > 0) {
+      const images = venue.media.map((media) => ({
+        url: media.url,
+        alt: media.alt,
+      }));
+      setImageList(images);
+    }
+  }, [venue]);
+
+  const handleImageError = (indexToRemove) => {
+    setImageList((prevImages) =>
+      prevImages.filter((_, index) => index !== indexToRemove)
+    );
+  };
+
   return (
-    <div>
+    <div className="overflow-hidden px-4 pt-4">
       <div>
-        {images?.map((img, index) => (
-          <img
-            src={img.url}
-            alt={img.alt}
-            key={index}
-            onError={(e) => {
-              e.target.style.display = 'none';
-            }}
-          />
-        ))}
+        <Carousel
+          showThumbs={false}
+          infiniteLoop={false}
+          showStatus={true}
+          showIndicators={false}
+        >
+          {imageList?.map((img, index) => (
+            <div key={index}>
+              <img
+                src={img.url}
+                alt={img.alt}
+                onError={() => handleImageError(index)}
+                className="rounded-[10px] aspect-3/2"
+              />
+            </div>
+          ))}
+        </Carousel>
         <div>
           <button>
             <ShareOutlinedIcon />
