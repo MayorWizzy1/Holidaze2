@@ -6,7 +6,7 @@ import { TrendingDestinationSection } from '../components/homePage/TrendingDesti
 import { SearchResultSection } from '../components/homePage/SearchResultSection';
 import { CallToActionSection } from '../components/homePage/CallToActionSection';
 
-export function Home() {
+export function Home({ authChanged }) {
   const [searchResults, setSearchResults] = useState([]);
   const [searchText, setSearchText] = useState('');
 
@@ -22,7 +22,7 @@ export function Home() {
       <NewlyAddedSection />
       <MostPopularSection />
       <TrendingDestinationSection />
-      <CallToActionSection />
+      <CallToActionSection authChanged={authChanged} />
     </div>
   );
 }

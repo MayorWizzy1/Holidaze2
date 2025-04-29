@@ -3,9 +3,9 @@ import LogoutIcon from '@mui/icons-material/Logout';
 import PermIdentityIcon from '@mui/icons-material/PermIdentity';
 import { useLogout } from '../../hooks/useLogout';
 
-export function AuthorizedDesktopHeader() {
+export function AuthorizedDesktopHeader({ setAuthChanged }) {
   const username = sessionStorage.getItem('username');
-  const logout = useLogout();
+  const logout = useLogout(setAuthChanged);
   return (
     <nav>
       <ul className="flex gap-10">

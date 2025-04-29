@@ -6,10 +6,10 @@ import LogoutIcon from '@mui/icons-material/Logout';
 import PermIdentityIcon from '@mui/icons-material/PermIdentity';
 import { useLogout } from '../../hooks/useLogout';
 
-export function AuthorizedMobileHeader() {
+export function AuthorizedMobileHeader({ setAuthChanged }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const username = sessionStorage.getItem('username');
-  const logout = useLogout();
+  const logout = useLogout(setAuthChanged);
 
   function toggleHamburgerMenu() {
     setIsMenuOpen((prev) => !prev);

@@ -1,6 +1,17 @@
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-export function CallToActionSection() {
+export function CallToActionSection({ authChanged }) {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [username, setUsername] = useState('');
+
+  useEffect(() => {
+    const token = sessionStorage.getItem('token');
+    const name = sessionStorage.getItem('username');
+    setIsLoggedIn(!!token);
+    setUsername(name || '');
+  }, [authChanged]);
+
   return (
     <div className="px-4 pb-8 sm:flex sm:justify-between sm:items-center sm:gap-2 lg:gap-3 lg:pb-20 lg:px-32">
       <div>
@@ -18,7 +29,10 @@ export function CallToActionSection() {
       </div>
       <div className="mt-8 sm:mt-0">
         <h1 className="text-xl font-bold mb-4">List your property</h1>
-        <Link className="block rounded-[10px] group overflow-hidden">
+        <Link
+          className="block rounded-[10px] group overflow-hidden"
+          to={isLoggedIn ? `/profile/${username}` : '/login'}
+        >
           <img
             src="public/property.jpg"
             alt="To your profile page"

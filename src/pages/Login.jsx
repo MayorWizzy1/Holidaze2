@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import logo from '../assets/Holidaze.svg';
 
-export function Login() {
+export function Login({ setAuthChanged }) {
   const schema = yup
     .object({
       email: yup
@@ -61,6 +61,7 @@ export function Login() {
       setIsError(error.message);
     } finally {
       setIsLoading(false);
+      setAuthChanged((prev) => !prev);
     }
   }
 

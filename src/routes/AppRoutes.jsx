@@ -13,6 +13,7 @@ import { Profile } from '../pages/Profile';
 export function AppRoutes() {
   const [isLoading, setIsLoading] = useState(false);
   const location = useLocation();
+  const [authChanged, setAuthChanged] = useState(false);
 
   useEffect(() => {
     setIsLoading(true);
@@ -41,12 +42,15 @@ export function AppRoutes() {
 
       <ScrollToTop />
       <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route path="/" element={<Home />} />
+        <Route path="/" element={<Layout setAuthChanged={setAuthChanged} />}>
+          <Route path="/" element={<Home authChanged={authChanged} />} />
           <Route path="venue/:id" element={<Venue />} />
           <Route path="allVenues" element={<AllVenues />} />
           <Route path="venues/:destination" element={<TrendingDestination />} />
-          <Route path="login" element={<Login />} />
+          <Route
+            path="login"
+            element={<Login setAuthChanged={setAuthChanged} />}
+          />
           <Route path="register" element={<Register />} />
           <Route path="profile/:username" element={<Profile />} />
         </Route>
