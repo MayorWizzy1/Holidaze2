@@ -8,6 +8,7 @@ import { Venue } from '../pages/Venue';
 import { AllVenues } from '../pages/AllVenues';
 import { TrendingDestination } from '../pages/TrendingDestination';
 import { ScrollToTop } from './ScrollToTop';
+import { Profile } from '../pages/Profile';
 
 export function AppRoutes() {
   const [isLoading, setIsLoading] = useState(false);
@@ -47,6 +48,7 @@ export function AppRoutes() {
           <Route path="venues/:destination" element={<TrendingDestination />} />
           <Route path="login" element={<Login />} />
           <Route path="register" element={<Register />} />
+          <Route path="profile/:username" element={<Profile />} />
         </Route>
       </Routes>
     </div>
