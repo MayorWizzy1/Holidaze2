@@ -14,8 +14,10 @@
   --color-bg-black: rgba(51, 51, 51, 0.5);
   --color-transparent-black: rgba(51, 51, 51, 0);
   --color-semi-transparent-black: rgba(51, 51, 51, 0.9);
+  --color-medium-transparent-black: rgba(51, 51, 51, 0.6);
 
   --shadow-custom: 4px 4px 10px 0px rgba(51, 51, 51, 0.1);
+  --shadow-box: 0 0 20px 4px rgba(51, 51, 51, 0.05);
 
   --animate-bounceLeft: bounceLeft 1.5s infinite linear;
   --animate-bounceRight: bounceRight 1.5s infinite linear;
@@ -54,7 +56,133 @@
     display: none;
   }
   .no-scrollbar {
-    -ms-overflow-style: none; /* Internet Explorer 10+ 用 */
-    scrollbar-width: none; /* Firefox 用 */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+@layer base {
+  .carousel-root,
+  .carousel-slider {
+    border-radius: 10px;
+  }
+
+  @media (min-width: 768px) {
+    .carousel-root,
+    .carousel-slider,
+    .carousel .slider-wrapper,
+    .carousel .slider-wrapper.axis-horizontal .slider,
+    .carousel .slider-wrapper.axis-horizontal .slider .slide div,
+    .carousel .slide img {
+      aspect-ratio: 2/1 !important;
+      object-position: center;
+      object-fit: cover;
+    }
+  }
+
+  .carousel.carousel-slider .control-arrow {
+    background-color: #fff !important;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    top: 50% !important;
+    transform: translateY(-50%);
+  }
+
+  .carousel .control-arrow,
+  .carousel.carousel-slider .control-arrow {
+    opacity: 0.7 !important;
+  }
+
+  .carousel .control-arrow:focus,
+  .carousel .control-arrow:hover {
+    opacity: 1 !important;
+  }
+
+  .carousel .control-next {
+    margin-right: 4px;
+  }
+
+  .carousel .control-prev {
+    margin-left: 4px;
+  }
+
+  @media (min-width: 768px) {
+    .carousel .control-next {
+      margin-right: 16px;
+    }
+
+    .carousel .control-prev {
+      margin-left: 16px;
+    }
+  }
+
+  .carousel .control-next.control-arrow:before {
+    border-left: 6px solid #333 !important;
+    left: 45%;
+    transform: translateX(-50%);
+    border-top: 6px solid transparent !important;
+    border-bottom: 6px solid transparent !important;
+  }
+
+  .carousel .control-prev.control-arrow:before {
+    border-right: 6px solid #333 !important;
+    right: 45%;
+    transform: translateX(-50%);
+    border-top: 6px solid transparent !important;
+    border-bottom: 6px solid transparent !important;
+  }
+
+  .carousel .control-arrow:before,
+  .carousel.carousel-slider .control-arrow:before {
+    margin: 0 !important;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .carousel .thumb.selected,
+  .carousel .thumb:hover {
+    border: 3px solid #747474 !important;
+    border-radius: 10px;
+  }
+
+  .carousel .carousel-status {
+    position: absolute;
+    top: auto !important;
+    bottom: 8px !important;
+    right: 8px !important;
+    padding: 2px 4px !important;
+    font-size: 10px;
+    text-shadow: none !important;
+    color: #fff;
+    background-color: rgba(51, 51, 51, 0.7);
+    border-radius: 4px;
+  }
+
+  .react-datepicker-wrapper {
+    width: 100% !important;
+  }
+
+  .react-datepicker__close-icon {
+    padding: 0 16px 0 0 !important;
+  }
+
+  .react-datepicker__close-icon::after {
+    color: #fff !important;
+    background-color: #333333 !important;
+  }
+
+  .carousel .thumbs-wrapper {
+    margin: 16px auto 0 auto !important;
+    text-align: center;
+  }
+
+  .carousel .thumb {
+    opacity: 0.6;
+  }
+
+  .carousel .thumb.selected {
+    opacity: 1;
   }
 }

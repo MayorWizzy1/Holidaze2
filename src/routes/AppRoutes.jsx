@@ -7,6 +7,7 @@ import { Home } from '../pages/Home';
 import { Venue } from '../pages/Venue';
 import { AllVenues } from '../pages/AllVenues';
 import { TrendingDestination } from '../pages/TrendingDestination';
+import { ScrollToTop } from './ScrollToTop';
 
 export function AppRoutes() {
   const [isLoading, setIsLoading] = useState(false);
@@ -23,7 +24,7 @@ export function AppRoutes() {
   }, [location]);
 
   return (
-    <div>
+    <div className="relative">
       {isLoading && (
         <div className="fixed flex flex-col justify-center top-0 bottom-0 right-0 left-0 bg-white z-50">
           <h1 className="font-roboto text-black tracking-wide text-center mb-2">
@@ -37,6 +38,7 @@ export function AppRoutes() {
         </div>
       )}
 
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route path="/" element={<Home />} />

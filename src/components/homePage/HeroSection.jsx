@@ -22,7 +22,6 @@ export function HeroSection({ setSearchResults, setSearchText }) {
       });
       const result = await response.json();
       setSearchResults(result.data);
-      console.log(result.data);
 
       if (result.data.length === 0) {
         setNoResults(true);
