@@ -14,8 +14,10 @@
   --color-bg-black: rgba(51, 51, 51, 0.5);
   --color-transparent-black: rgba(51, 51, 51, 0);
   --color-semi-transparent-black: rgba(51, 51, 51, 0.9);
+  --color-medium-transparent-black: rgba(51, 51, 51, 0.6);
 
   --shadow-custom: 4px 4px 10px 0px rgba(51, 51, 51, 0.1);
+  --shadow-box: 0 0 20px 4px rgba(51, 51, 51, 0.05);
 
   --animate-bounceLeft: bounceLeft 1.5s infinite linear;
   --animate-bounceRight: bounceRight 1.5s infinite linear;
@@ -54,14 +56,28 @@
     display: none;
   }
   .no-scrollbar {
-    -ms-overflow-style: none; /* Internet Explorer 10+ 用 */
-    scrollbar-width: none; /* Firefox 用 */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
 }
 
 @layer base {
+  .carousel-root,
   .carousel-slider {
     border-radius: 10px;
+  }
+
+  @media (min-width: 768px) {
+    .carousel-root,
+    .carousel-slider,
+    .carousel .slider-wrapper,
+    .carousel .slider-wrapper.axis-horizontal .slider,
+    .carousel .slider-wrapper.axis-horizontal .slider .slide div,
+    .carousel .slide img {
+      aspect-ratio: 2/1 !important;
+      object-position: center;
+      object-fit: cover;
+    }
   }
 
   .carousel.carousel-slider .control-arrow {
@@ -89,6 +105,16 @@
 
   .carousel .control-prev {
     margin-left: 4px;
+  }
+
+  @media (min-width: 768px) {
+    .carousel .control-next {
+      margin-right: 16px;
+    }
+
+    .carousel .control-prev {
+      margin-left: 16px;
+    }
   }
 
   .carousel .control-next.control-arrow:before {
@@ -132,5 +158,31 @@
     color: #fff;
     background-color: rgba(51, 51, 51, 0.7);
     border-radius: 4px;
+  }
+
+  .react-datepicker-wrapper {
+    width: 100% !important;
+  }
+
+  .react-datepicker__close-icon {
+    padding: 0 16px 0 0 !important;
+  }
+
+  .react-datepicker__close-icon::after {
+    color: #fff !important;
+    background-color: #333333 !important;
+  }
+
+  .carousel .thumbs-wrapper {
+    margin: 16px auto 0 auto !important;
+    text-align: center;
+  }
+
+  .carousel .thumb {
+    opacity: 0.6;
+  }
+
+  .carousel .thumb.selected {
+    opacity: 1;
   }
 }
