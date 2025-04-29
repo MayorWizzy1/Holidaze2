@@ -5,9 +5,9 @@ export function Footer() {
   const isLoggedIn = sessionStorage.getItem('token');
   return (
     <footer className="px-4 py-8 bg-light-orange text-black lg:px-32 lg:py-16">
-      <Link to="/" className="block w-1/4 mb-6 lg:w-1/5 lg:mb-12">
+      <a href="/" className="block w-1/4 mb-6 lg:w-1/5 lg:mb-12">
         <img src={logo} alt="Holidaze logo" />
-      </Link>
+      </a>
       <nav className="flex flex-col gap-6 lg:flex-row lg:gap-24">
         <ul className="flex flex-col gap-1.5 lg:gap-4">
           <li>
