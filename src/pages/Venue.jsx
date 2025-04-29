@@ -23,6 +23,7 @@ import { Link } from 'react-router-dom';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import CloseIcon from '@mui/icons-material/Close';
+import KeyboardBackspaceOutlinedIcon from '@mui/icons-material/KeyboardBackspaceOutlined';
 
 export function Venue() {
   let { id } = useParams();
@@ -200,7 +201,7 @@ export function Venue() {
           </button>
         </div>
       </div>
-      <div className="md:grid md:grid-cols-2 md:gap-8 md:mb-20 md:mt-5 md:items-start md:px-4 lg:gap-14 lg:px-32 lg:mb-32 lg:mt-8 xl:px-0 xl:max-w-[1120px] xl:mx-auto xl:grid-cols-8 xl:gap-20">
+      <div className="md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-20 md:mb-20 md:mt-5 md:items-start md:px-4 lg:gap-x-14 lg:px-32 lg:mb-32 lg:mt-8 xl:px-0 xl:max-w-[1120px] xl:mx-auto xl:grid-cols-8 xl:gap-x-20">
         <div className="px-4 md:px-0 xl:col-start-1 xl:col-end-6">
           <div className="flex items-end justify-between mt-3.5">
             <h1 className="text-xl font-bold break-words max-w-5/6">
@@ -264,7 +265,7 @@ export function Venue() {
             </div>
           </div>
         </div>
-        <div className="shadow-box mt-8 mx-4 mb-20 rounded-[10px] px-4 py-6 md:mt-4 md:mb-4 md:mx-0 xl:col-start-6 xl:col-end-9">
+        <div className="shadow-box mt-8 mx-4 mb-12 rounded-[10px] px-4 py-6 md:mt-4 md:mb-4 md:mx-0 xl:col-start-6 xl:col-end-9">
           <div className="flex items-center gap-0.5 mb-6">
             <p className="text-xl font-bold">${venue.price}</p>
             <span className="text-xs text-outline">/ night</span>
@@ -333,7 +334,7 @@ export function Venue() {
             {!isLoggedIn && (
               <p className="text-blue font-semibold text-center mt-2">
                 <Link to="/login" className="underline">
-                  Sign in
+                  Sign in{' '}
                 </Link>
                 to book a venue.
               </p>
@@ -370,6 +371,13 @@ export function Venue() {
             )}
           </div>
         </div>
+        <Link
+          to="/"
+          className="underline text-sm ml-4 mb-20 block md:ml-0 md:mb-0 whitespace-nowrap"
+        >
+          <KeyboardBackspaceOutlinedIcon className="!w-4 !h-4 mr-1" />
+          Back to Home
+        </Link>
       </div>
       {isDone && (
         <div className="absolute top-0 bottom-0 right-0 left-0 bg-medium-transparent-black">
