@@ -25,7 +25,7 @@ export function Profile() {
   console.log(bookings);
 
   return (
-    <div className="text-black font-roboto px-4 lg:px-32">
+    <div className="text-black font-roboto px-4 mb-20 lg:px-32 lg:mb-32">
       <div className="border border-light-outline rounded-[10px] px-4 py-6 mb-4 lg:mt-10 lg:mb-6 lg:px-6">
         <button className="text-blue underline font-bold mr-0 ml-auto block cursor-pointer">
           Edit
@@ -67,7 +67,7 @@ export function Profile() {
                     className="rounded-t-[10px] object-cover aspect-3/2 transition-transform duration-700 group-hover:scale-105"
                   />
                 </figure>
-                <div className="px-2 py-4 min-h-48 flex flex-col justify-between lg:min-h-52">
+                <div className="px-2 py-4 min-h-48 flex flex-col justify-between lg:min-h-72">
                   <div>
                     <h2 className="font-semibold mb-1 break-words leading-[1.3]">
                       {booking.venue.name}
@@ -80,23 +80,23 @@ export function Profile() {
                       </p>
                     </div>
                     <div>
-                      <p className="font-medium mb-1">
+                      <p className="text-sm font-medium mb-0.5">
                         Check in:
-                        <span className="ml-1.5 font-normal">
+                        <span className="text-base ml-1.5 font-normal">
                           {new Date(booking.dateFrom).toLocaleDateString(
                             'de-DE'
                           )}
                         </span>
                       </p>
-                      <p className="font-medium mb-1">
+                      <p className="text-sm font-medium mb-0.5">
                         Checkout:
-                        <span className="ml-1.5 font-normal">
+                        <span className="text-base ml-1.5 font-normal">
                           {new Date(booking.dateTo).toLocaleDateString('de-DE')}
                         </span>
                       </p>
-                      <p className="font-medium">
+                      <p className="text-sm font-medium">
                         Guests:
-                        <span className="ml-1.5 font-normal">
+                        <span className="text-base ml-1.5 font-normal">
                           {booking.guests}
                         </span>
                       </p>
