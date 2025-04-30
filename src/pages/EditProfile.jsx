@@ -69,17 +69,17 @@ export function EditProfile({ setShowEdit }) {
   };
 
   return (
-    <div className="absolute bg-medium-transparent-black top-0 bottom-0 right-0 left-0 px-4 z-10">
-      <div className="bg-white rounded-[10px] mt-20 relative py-16">
+    <div className="absolute bg-medium-transparent-black top-0 bottom-0 right-0 left-0 px-4 z-10 md:px-20">
+      <div className="bg-white rounded-[10px] mt-20 relative py-16 md:py-20 lg:max-w-2/3 lg:mx-auto lg:mt-32">
         <button
           onClick={() => {
             setShowEdit(false);
           }}
-          className="absolute top-4 right-4"
+          className="absolute top-4 right-4 md:top-6 md:right-6"
         >
           <CloseIcon className="!w-5 !h-5" />
         </button>
-        <form onSubmit={handleSubmit(onSubmit)} className="px-2">
+        <form onSubmit={handleSubmit(onSubmit)} className="px-2 md:px-6">
           <input
             type="text"
             {...register('bio')}
@@ -101,7 +101,7 @@ export function EditProfile({ setShowEdit }) {
           />
           <button
             type="submit"
-            className="bg-blue text-white w-full rounded-[10px] py-3 cursor-pointer transition-all duration-300 hover:bg-white hover:text-blue hover:border"
+            className="bg-blue text-white w-full rounded-[10px] py-3 cursor-pointer transition-all duration-300 hover:bg-white hover:text-blue hover:border md:py-4"
           >
             Save
           </button>
