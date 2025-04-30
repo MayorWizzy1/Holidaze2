@@ -24,6 +24,7 @@ import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import CloseIcon from '@mui/icons-material/Close';
 import KeyboardBackspaceOutlinedIcon from '@mui/icons-material/KeyboardBackspaceOutlined';
+import { getNights } from '../utils/dateUtils';
 
 export function Venue() {
   let { id } = useParams();
@@ -48,12 +49,6 @@ export function Venue() {
       setGuests(updated);
       setValue('Guests', updated);
     }
-  };
-
-  const getNights = (start, end) => {
-    if (!start || !end) return 0;
-    const msPerDay = 1000 * 60 * 60 * 24;
-    return Math.round((end - start) / msPerDay);
   };
 
   const schema = yup.object({
@@ -109,11 +104,9 @@ export function Venue() {
       const result = await response.json();
 
       if (response.ok) {
-        console.log('done');
         setIsDone(true);
       } else {
         setIsError(result.errors[0].message);
-        console.log(result.errors[0].message);
       }
     } catch (error) {
       setIsError(error.message);
