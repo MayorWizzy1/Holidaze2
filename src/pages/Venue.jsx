@@ -319,7 +319,7 @@ export function Venue() {
             </div>
             <button
               type="submit"
-              className="mt-4 bg-blue text-white w-full rounded-[8px] py-3 cursor-pointer disabled:cursor-not-allowed"
+              className="mt-4 bg-blue text-white w-full rounded-[8px] py-3 cursor-pointer disabled:cursor-not-allowed transition-all duration-300 hover:bg-white hover:text-blue hover:border"
               disabled={!isLoggedIn}
             >
               Book
