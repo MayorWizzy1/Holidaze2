@@ -6,6 +6,8 @@ import AddIcon from '@mui/icons-material/Add';
 import HotelOutlinedIcon from '@mui/icons-material/HotelOutlined';
 import StarIcon from '@mui/icons-material/Star';
 import KeyboardBackspaceOutlinedIcon from '@mui/icons-material/KeyboardBackspaceOutlined';
+import { EditProfile } from './EditProfile';
+import { useState } from 'react';
 
 export function Profile() {
   let { username } = useParams();
@@ -22,14 +24,23 @@ export function Profile() {
   });
   const bookings = profile.bookings;
 
-  console.log(bookings);
+  const [showEdit, setShowEdit] = useState(false);
+
+  const editProfile = () => {
+    console.log('edit');
+    setShowEdit(true);
+  };
 
   return (
     <div className="text-black font-roboto px-4 mb-20 lg:px-32 lg:mb-32">
       <div className="border border-light-outline rounded-[10px] px-4 py-6 mb-4 lg:mt-10 lg:mb-6 lg:px-6">
-        <button className="text-blue underline font-bold mr-0 ml-auto block cursor-pointer">
+        <button
+          onClick={editProfile}
+          className="text-blue underline font-bold mr-0 ml-auto block cursor-pointer"
+        >
           Edit
         </button>
+        {showEdit && <EditProfile setShowEdit={setShowEdit} />}
         <div className="flex items-center gap-2 mb-4">
           <img
             src={profile.avatar?.url}
