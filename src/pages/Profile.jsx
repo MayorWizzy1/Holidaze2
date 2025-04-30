@@ -22,6 +22,8 @@ export function Profile() {
   });
   const bookings = profile.bookings;
 
+  console.log(bookings);
+
   return (
     <div className="text-black font-roboto px-4 lg:px-32">
       <div className="border border-light-outline rounded-[10px] px-4 py-6 mb-4 lg:mt-10 lg:mb-6 lg:px-6">
@@ -54,8 +56,8 @@ export function Profile() {
             {bookings.map((booking, index) => (
               <Link
                 key={index}
-                id={booking.venue?.id}
-                to={`/venue/${booking.venue?.id}`}
+                id={booking.id}
+                to={`/booking/${booking.id}`}
                 className="block bg-white shadow-custom rounded-[10px] w-[300px] xl:w-auto last:mr-4 xl:last:mr-0 group"
               >
                 <figure className="aspect-3/2 rounded-t-[10px] overflow-hidden">

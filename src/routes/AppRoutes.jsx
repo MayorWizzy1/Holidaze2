@@ -9,6 +9,7 @@ import { AllVenues } from '../pages/AllVenues';
 import { TrendingDestination } from '../pages/TrendingDestination';
 import { ScrollToTop } from './ScrollToTop';
 import { Profile } from '../pages/Profile';
+import { EditBooking } from '../pages/EditBooking';
 
 export function AppRoutes() {
   const [isLoading, setIsLoading] = useState(false);
@@ -53,6 +54,7 @@ export function AppRoutes() {
           />
           <Route path="register" element={<Register />} />
           <Route path="profile/:username" element={<Profile />} />
+          <Route path="booking/:id" element={<EditBooking />} />
         </Route>
       </Routes>
     </div>
