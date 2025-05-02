@@ -3,6 +3,7 @@ import logo from '../assets/Holidaze.svg';
 
 export function Footer() {
   const isLoggedIn = sessionStorage.getItem('token');
+  const username = sessionStorage.getItem('username');
   return (
     <footer className="px-4 py-8 bg-light-orange text-black lg:px-32 lg:py-16">
       <a href="/" className="block w-1/4 mb-6 lg:w-1/5 lg:mb-12">
@@ -18,7 +19,7 @@ export function Footer() {
           <li>
             <Link
               className="relative after:absolute after:content-[] after:w-full after:h-[1px] after:bg-black after:bottom-[-4px] after:left-0 after:transform-[scale(0,1)] after:origin-top-left after:transition-transform after:duration-300 hover:after:transform-[scale(1,1)]"
-              to={isLoggedIn ? '/' : '/login'}
+              to={isLoggedIn ? `/profile/${username}` : '/login'}
             >
               List your property
             </Link>
@@ -26,7 +27,7 @@ export function Footer() {
           <li>
             <Link
               className="relative after:absolute after:content-[] after:w-full after:h-[1px] after:bg-black after:bottom-[-4px] after:left-0 after:transform-[scale(0,1)] after:origin-top-left after:transition-transform after:duration-300 hover:after:transform-[scale(1,1)]"
-              to={isLoggedIn ? '/' : '/login'}
+              to={isLoggedIn ? `/profile/${username}` : '/login'}
             >
               Your bookings
             </Link>
