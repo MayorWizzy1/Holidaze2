@@ -8,10 +8,13 @@ import { Venue } from '../pages/Venue';
 import { AllVenues } from '../pages/AllVenues';
 import { TrendingDestination } from '../pages/TrendingDestination';
 import { ScrollToTop } from './ScrollToTop';
+import { Profile } from '../pages/Profile';
+import { EditBooking } from '../pages/EditBooking';
 
 export function AppRoutes() {
   const [isLoading, setIsLoading] = useState(false);
   const location = useLocation();
+  const [authChanged, setAuthChanged] = useState(false);
 
   useEffect(() => {
     setIsLoading(true);
@@ -40,13 +43,18 @@ export function AppRoutes() {
 
       <ScrollToTop />
       <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route path="/" element={<Home />} />
+        <Route path="/" element={<Layout setAuthChanged={setAuthChanged} />}>
+          <Route path="/" element={<Home authChanged={authChanged} />} />
           <Route path="venue/:id" element={<Venue />} />
           <Route path="allVenues" element={<AllVenues />} />
           <Route path="venues/:destination" element={<TrendingDestination />} />
-          <Route path="login" element={<Login />} />
+          <Route
+            path="login"
+            element={<Login setAuthChanged={setAuthChanged} />}
+          />
           <Route path="register" element={<Register />} />
+          <Route path="profile/:username" element={<Profile />} />
+          <Route path="booking/:id" element={<EditBooking />} />
         </Route>
       </Routes>
     </div>

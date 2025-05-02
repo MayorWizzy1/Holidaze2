@@ -6,10 +6,10 @@ import LogoutIcon from '@mui/icons-material/Logout';
 import PermIdentityIcon from '@mui/icons-material/PermIdentity';
 import { useLogout } from '../../hooks/useLogout';
 
-export function AuthorizedMobileHeader() {
+export function AuthorizedMobileHeader({ setAuthChanged }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const username = sessionStorage.getItem('username');
-  const logout = useLogout();
+  const logout = useLogout(setAuthChanged);
 
   function toggleHamburgerMenu() {
     setIsMenuOpen((prev) => !prev);
@@ -23,7 +23,7 @@ export function AuthorizedMobileHeader() {
         </button>
       ) : (
         <div>
-          <Link to="/login" className="mr-6">
+          <Link to={`/profile/${username}`} className="mr-6">
             <PermIdentityIcon className="!text-black" />
           </Link>
           <button onClick={toggleHamburgerMenu} className="text-black">
@@ -42,13 +42,21 @@ export function AuthorizedMobileHeader() {
             <Link onClick={toggleHamburgerMenu}>Venues</Link>
           </li>
           <li>
-            <Link onClick={toggleHamburgerMenu}>List your property</Link>
+            <Link onClick={toggleHamburgerMenu} to={`/profile/${username}`}>
+              List your property
+            </Link>
           </li>
           <li>
-            <Link onClick={toggleHamburgerMenu}>Your bookings</Link>
+            <Link onClick={toggleHamburgerMenu} to={`/profile/${username}`}>
+              Your bookings
+            </Link>
           </li>
           <li>
-            <Link onClick={toggleHamburgerMenu} className="flex items-center">
+            <Link
+              onClick={toggleHamburgerMenu}
+              to={`/profile/${username}`}
+              className="flex items-center"
+            >
               <PermIdentityIcon className="!w-6 mr-1" />
               {username}
             </Link>
