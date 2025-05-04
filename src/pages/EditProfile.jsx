@@ -106,7 +106,7 @@ export function EditProfile({ setShowEdit }) {
             Save
           </button>
         </form>
-        {isError && <p className="text-error mt-4">{isError}</p>}
+        {isError && <p className="text-error mt-4 ml-2">{isError}</p>}
       </div>
     </div>
   );
