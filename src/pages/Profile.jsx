@@ -8,6 +8,7 @@ import StarIcon from '@mui/icons-material/Star';
 import KeyboardBackspaceOutlinedIcon from '@mui/icons-material/KeyboardBackspaceOutlined';
 import { EditProfile } from './EditProfile';
 import { useState } from 'react';
+import { ListVenue } from './ListVenue';
 
 export function Profile() {
   let { username } = useParams();
@@ -25,10 +26,15 @@ export function Profile() {
   const bookings = profile.bookings;
 
   const [showEdit, setShowEdit] = useState(false);
+  const [listVenue, setListVenue] = useState(false);
 
   const editProfile = () => {
     console.log('edit');
     setShowEdit(true);
+  };
+
+  const createVenue = () => {
+    setListVenue(true);
   };
 
   return (
@@ -146,10 +152,14 @@ export function Profile() {
         )}
       </div>
       <div className="border border-light-outline rounded-[10px] px-4 pt-6 mb-12 lg:px-6">
-        <button className="text-blue underline font-bold mr-0 ml-auto block cursor-pointer">
+        <button
+          onClick={createVenue}
+          className="text-blue underline font-bold mr-0 ml-auto block cursor-pointer"
+        >
           <AddIcon className="!w-4 !h-4 mr-0.5" />
           List new venue
         </button>
+        {listVenue && <ListVenue setListVenue={setListVenue} />}
         <h1 className="text-xl font-bold mb-4">
           Your venues<span className="ml-1.5">({profile.venues?.length})</span>
         </h1>
