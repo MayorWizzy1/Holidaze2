@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import StarIcon from '@mui/icons-material/Star';
 
 export function NewlyAddedSection() {
-  const url = 'https://v2.api.noroff.dev/holidaze/venues';
+  const url = 'https://v2.api.noroff.dev/holidaze/venues?sortOrder=asc';
   const { data: venues } = useApi(url, {
     method: 'GET',
   });
@@ -22,7 +22,7 @@ export function NewlyAddedSection() {
           >
             <figure className="aspect-3/2 rounded-t-[10px] overflow-hidden">
               <img
-                src={venue.media[0].url}
+                src={venue.media[0]?.url || 'public/noImage.jpg'}
                 alt=""
                 className="rounded-t-[10px] object-cover aspect-3/2 transition-transform duration-700 group-hover:scale-105"
               />

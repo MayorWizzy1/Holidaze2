@@ -135,7 +135,7 @@ export function Venue() {
   useEffect(() => {
     if (venue?.media && venue.media.length > 0) {
       const images = venue.media.map((media) => ({
-        url: media.url,
+        url: media.url || 'public/noImage.jpg',
         alt: media.alt,
       }));
       setImageList(images);
