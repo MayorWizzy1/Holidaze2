@@ -3,14 +3,14 @@ import HotelOutlinedIcon from '@mui/icons-material/HotelOutlined';
 import { Link } from 'react-router-dom';
 import StarIcon from '@mui/icons-material/Star';
 
-export function SearchResultSection({ results, searchText }) {
+export function SearchResultSection({ searchResults, searchText }) {
   return (
     <div className="px-4 pt-8 text-black font-roboto lg:px-32 lg:pt-16">
       <h1 className="text-xl font-bold mb-4">
         Search results for "{searchText}"
       </h1>
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-3 lg:grid-cols-4 lg:gap-3">
-        {results.map((venue, index) => (
+        {searchResults.map((venue, index) => (
           <Link
             key={index}
             id={venue.id}
