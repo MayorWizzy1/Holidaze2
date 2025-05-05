@@ -10,7 +10,10 @@ export function AuthorizedDesktopHeader({ setAuthChanged }) {
     <nav>
       <ul className="flex gap-10">
         <li>
-          <Link className="relative after:absolute after:content-[] after:w-full after:h-[1px] after:bg-black after:bottom-[-4px] after:left-0 after:transform-[scale(0,1)] after:origin-top-left after:transition-transform after:duration-300 hover:after:transform-[scale(1,1)]">
+          <Link
+            to="/allVenues"
+            className="relative after:absolute after:content-[] after:w-full after:h-[1px] after:bg-black after:bottom-[-4px] after:left-0 after:transform-[scale(0,1)] after:origin-top-left after:transition-transform after:duration-300 hover:after:transform-[scale(1,1)]"
+          >
             Venues
           </Link>
         </li>

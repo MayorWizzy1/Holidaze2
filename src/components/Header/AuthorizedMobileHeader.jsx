@@ -39,7 +39,9 @@ export function AuthorizedMobileHeader({ setAuthChanged }) {
       >
         <ul className="flex flex-col items-center justify-center gap-10 text-2xl font-medium">
           <li>
-            <Link onClick={toggleHamburgerMenu}>Venues</Link>
+            <Link onClick={toggleHamburgerMenu} to="/allVenues">
+              Venues
+            </Link>
           </li>
           <li>
             <Link onClick={toggleHamburgerMenu} to={`/profile/${username}`}>
