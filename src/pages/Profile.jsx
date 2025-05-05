@@ -29,7 +29,6 @@ export function Profile() {
   const [listVenue, setListVenue] = useState(false);
 
   const editProfile = () => {
-    console.log('edit');
     setShowEdit(true);
   };
 
