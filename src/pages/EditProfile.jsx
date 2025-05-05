@@ -23,8 +23,10 @@ export function EditProfile({ setShowEdit }) {
   const schema = yup
     .object({
       bio: yup.string(),
-      avatarUrl: yup.string().url('Please enter a valid URL.'),
-      avatarAlt: yup.string(),
+      avatar: yup.object({
+        url: yup.string().url('Please enter a valid URL').optional(),
+        alt: yup.string().optional(),
+      }),
     })
     .required();
 
