@@ -23,8 +23,10 @@ export function EditProfile({ setShowEdit }) {
   const schema = yup
     .object({
       bio: yup.string(),
-      avatarUrl: yup.string().url('Please enter a valid URL.'),
-      avatarAlt: yup.string(),
+      avatar: yup.object({
+        url: yup.string().url('Please enter a valid URL').optional(),
+        alt: yup.string().optional(),
+      }),
     })
     .required();
 
@@ -106,7 +108,7 @@ export function EditProfile({ setShowEdit }) {
             Save
           </button>
         </form>
-        {isError && <p className="text-error mt-4">{isError}</p>}
+        {isError && <p className="text-error mt-4 ml-2">{isError}</p>}
       </div>
     </div>
   );
