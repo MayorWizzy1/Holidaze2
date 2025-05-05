@@ -4,6 +4,7 @@ import HotelOutlinedIcon from '@mui/icons-material/HotelOutlined';
 import { Link } from 'react-router-dom';
 import StarIcon from '@mui/icons-material/Star';
 import { useState } from 'react';
+import ReactPaginate from 'react-paginate';
 
 export function AllVenues() {
   const [url, setUrl] = useState(
@@ -14,16 +15,23 @@ export function AllVenues() {
   });
   console.log(meta);
 
+  const handlePageChange = (selected) => {
+    const newPage = selected.selected + 1;
+    const newUrl = `https://v2.api.noroff.dev/holidaze/venues?limit=20&page=${newPage}`;
+    setUrl(newUrl);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <div className="px-4 pt-8 text-black font-roboto lg:px-32 lg:pt-16">
-      <h1 className="text-xl font-bold mb-4">All venues</h1>
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-3 lg:grid-cols-4 lg:gap-3">
+      <h1 className="text-xl font-bold mb-4 lg:mb-6">All venues</h1>
+      <div className="grid grid-cols-1 gap-4 sm:gap-y-6 sm:gap-x-3 sm:grid-cols-3 lg:grid-cols-4">
         {venues.map((venue, index) => (
           <Link
             key={index}
             id={venue.id}
             to={`/venue/${venue.id}`}
-            className="block bg-white shadow-custom rounded-[10px] w-auto last:mr-4 lg:last:mr-0 group"
+            className="block bg-white shadow-custom rounded-[10px] w-auto group"
           >
             <figure className="aspect-3/2 rounded-t-[10px] overflow-hidden">
               <img
@@ -63,6 +71,19 @@ export function AllVenues() {
           </Link>
         ))}
       </div>
+
+      {meta && (
+        <ReactPaginate
+          pageCount={meta.pageCount} // ページ数
+          onPageChange={handlePageChange} // ページ変更時の処理
+          containerClassName="pagination" // ページネーションのクラス
+          previousLabel="Previous"
+          nextLabel="Next"
+          breakLabel="..."
+          pageRangeDisplayed={3}
+          marginPagesDisplayed={2}
+        />
+      )}
     </div>
   );
 }
