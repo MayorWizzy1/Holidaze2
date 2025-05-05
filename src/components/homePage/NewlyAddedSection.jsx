@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import StarIcon from '@mui/icons-material/Star';
 
 export function NewlyAddedSection() {
-  const url = 'https://v2.api.noroff.dev/holidaze/venues?sortOrder=asc';
+  const url = 'https://v2.api.noroff.dev/holidaze/venues?sort=created';
   const { data: venues } = useApi(url, {
     method: 'GET',
   });
