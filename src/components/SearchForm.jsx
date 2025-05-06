@@ -60,7 +60,7 @@ export function SearchForm({ setSearchResults, setSearchText }) {
 
       <button
         type="submit"
-        className="bg-red text-white cursor-pointer rounded-[10px] py-3 w-full font-medium block md:w-1/2 md:mx-auto lg:w-1/4 transition-all duration-300 hover:bg-white hover:text-blue hover:border disabled:cursor-not-allowed"
+        className="bg-[#FF0000] text-white cursor-pointer rounded-[10px] py-3 w-full font-medium block md:w-1/2 md:mx-auto lg:w-1/4 transition-all duration-300 hover:bg-white hover:text-blue hover:border disabled:cursor-not-allowed"
         disabled={isLoading || inputValue === ''}
         /* Changed the search button background color to red */
       >
