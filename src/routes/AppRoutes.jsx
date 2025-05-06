@@ -15,6 +15,8 @@ export function AppRoutes() {
   const [isLoading, setIsLoading] = useState(false);
   const location = useLocation();
   const [authChanged, setAuthChanged] = useState(false);
+  const [searchResults, setSearchResults] = useState([]);
+  const [searchText, setSearchText] = useState('');
 
   useEffect(() => {
     setIsLoading(true);
@@ -44,9 +46,30 @@ export function AppRoutes() {
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<Layout setAuthChanged={setAuthChanged} />}>
-          <Route path="/" element={<Home authChanged={authChanged} />} />
+          <Route
+            path="/"
+            element={
+              <Home
+                authChanged={authChanged}
+                setSearchResults={setSearchResults}
+                setSearchText={setSearchText}
+                searchText={searchText}
+                searchResults={searchResults}
+              />
+            }
+          />
           <Route path="venue/:id" element={<Venue />} />
-          <Route path="allVenues" element={<AllVenues />} />
+          <Route
+            path="allVenues"
+            element={
+              <AllVenues
+                setSearchResults={setSearchResults}
+                setSearchText={setSearchText}
+                searchText={searchText}
+                searchResults={searchResults}
+              />
+            }
+          />
           <Route path="venues/:destination" element={<TrendingDestination />} />
           <Route
             path="login"

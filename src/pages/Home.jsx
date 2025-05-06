@@ -6,10 +6,13 @@ import { TrendingDestinationSection } from '../components/homePage/TrendingDesti
 import { SearchResultSection } from '../components/homePage/SearchResultSection';
 import { CallToActionSection } from '../components/homePage/CallToActionSection';
 
-export function Home({ authChanged }) {
-  const [searchResults, setSearchResults] = useState([]);
-  const [searchText, setSearchText] = useState('');
-
+export function Home({
+  authChanged,
+  setSearchResults,
+  setSearchText,
+  searchText,
+  searchResults,
+}) {
   return (
     <div className="overflow-hidden">
       <HeroSection
@@ -17,7 +20,10 @@ export function Home({ authChanged }) {
         setSearchText={setSearchText}
       />
       {searchResults.length > 0 && (
-        <SearchResultSection results={searchResults} searchText={searchText} />
+        <SearchResultSection
+          searchResults={searchResults}
+          searchText={searchText}
+        />
       )}
       <NewlyAddedSection />
       <MostPopularSection />

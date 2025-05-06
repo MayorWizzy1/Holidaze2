@@ -185,4 +185,59 @@
   .carousel .thumb.selected {
     opacity: 1;
   }
+
+  .pagination {
+    display: flex;
+    justify-content: center;
+    gap: 2px;
+    margin: 32px 0;
+    font-size: 14px;
+
+    li {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      cursor: pointer;
+    }
+
+    li:hover {
+      text-decoration: underline;
+    }
+
+    .selected {
+      border: solid 1px #0b8db7;
+      border-radius: 50%;
+      background-color: #0b8db7;
+      color: #fff;
+    }
+
+    .disabled {
+      cursor: not-allowed;
+      opacity: 0.5;
+    }
+
+    .previous,
+    .next {
+      border: none;
+      width: fit-content;
+    }
+
+    .previous {
+      margin-right: 8px;
+    }
+
+    .next {
+      margin-left: 8px;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .pagination {
+      gap: 4px;
+      font-size: 16px;
+      margin: 56px 0;
+    }
+  }
 }
